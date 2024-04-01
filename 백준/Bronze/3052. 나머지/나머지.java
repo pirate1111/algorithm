@@ -1,31 +1,18 @@
 import java.util.Scanner;
+import java.util.HashSet;
 
+//중복값을 저장하지 않는 HashSet 사용
 public class Main {
     
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
+        HashSet<Integer> result = new HashSet<Integer>();
         
-        int[] num = new int[10];
-        
-        int result = 0;
-        
-        for (int i=0; i<num.length; i++) {
-        	num[i] = scan.nextInt();
-        	num[i] = num[i] % 42;
+        for (int i=0; i<10; i++) {
+            result.add(scan.nextInt() % 42);
         }
         
-        for (int i=0; i<num.length; i++) {
-        	int count = 0;
-        	for (int j=i+1; j<num.length; j++) {
-        		if(num[i] == num[j]) {
-        			count++;
-        		}
-        	}
-        	if (count == 0) {
-        		result++;
-        	}
-        }
-        System.out.print(result);
+        System.out.println(result.size());
     }
 }
